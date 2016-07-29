@@ -14,9 +14,10 @@ Gem::Specification.new do |gem|
   gem.name          = "persistent-cache-ram"
   gem.require_paths = ["lib"]
   gem.version       = Persistent::Cache::VERSION
-  gem.add_development_dependency 'rspec', '2.12.0'
-  gem.add_development_dependency 'simplecov'
-  gem.add_development_dependency 'simplecov-rcov'
-#  gem.add_development_dependency 'debugger'
+  gem.add_development_dependency "bundler", "~> 1.3"
+  gem.add_development_dependency "rake"
+  gem.add_development_dependency "rspec"
+  gem.add_development_dependency 'coveralls'
+  gem.add_development_dependency 'byebug'
   gem.add_dependency 'eh'
 end
