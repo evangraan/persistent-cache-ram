@@ -158,12 +158,12 @@ describe Persistent::Cache do
     end
 
     it "should be able to handle multiple accesses to the same db" do
-      #pending "find a better way to test this, currently you need to spawn multiple rspecs running this test to hit the error if the busy_timeout is not specified"
+      # pending "find a better way to test this, currently you need to spawn multiple rspecs running this test to hit the error if the busy_timeout is not specified"
       pcache = Persistent::Cache.new("multidb") 
       pcache["multi_test"] = 0
 
       threads = []
-      100.times do |i|
+      100.times do
         threads << Thread.new do
           Thread.current['pcache'] = Persistent::Cache.new("multidb") 
           if (!Thread.current['pcache'].nil? && !Thread.current['pcache']["multi_test"].nil?)
@@ -209,6 +209,7 @@ describe Persistent::Cache do
     def setup_cache(encoding = nil)
       FileUtils.rm_f(@db_name)
       @pcache = Persistent::Cache.new(@db_name, 1)
+      @pcache.encoding = encoding if encoding
     end
   end
 end
