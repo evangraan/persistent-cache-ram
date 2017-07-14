@@ -1,3 +1,4 @@
+require 'time'
 require "persistent-cache/version"
 require "persistent-cache/storage/storage_ram"
 
